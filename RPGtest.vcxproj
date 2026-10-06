@@ -123,12 +123,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SceneInGame.cpp" />
+    <ClCompile Include="SceneMainMenu.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SceneResult.cpp" />
+    <ClCompile Include="SceneStartup.cpp" />
+    <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Element.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyData.h" />
+    <ClInclude Include="EnemyFactory.h" />
+    <ClInclude Include="KeyCord.h" />
     <ClInclude Include="SceneBase.h" />
+    <ClInclude Include="SceneInGame.h" />
+    <ClInclude Include="SceneMainMenu.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SceneResult.h" />
+    <ClInclude Include="SceneStartup.h" />
+    <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
