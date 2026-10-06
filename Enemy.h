@@ -8,5 +8,7 @@ class Enemy
 public:
 
 	Enemy(const EnemyData& arg_data);
+
+	EnemyData GetData() const { return data; }
 };
 

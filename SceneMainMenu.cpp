@@ -18,16 +18,31 @@ SCENE_UPDATE(SceneMainMenu)
 	if(_kbhit())
 	{
 		int key = _getch();
+		int selectEnemyID = -1;
 
-		switch(key)
+		if(key == One || key == Two|| key == Three || key == Four)
 		{
-		case One:
-			std::cout << "Enemy 1 selected" << std::endl;
-			EnemyFactory::CreateEnemy(1);
-			manager->ChangeScene(std::make_unique<SceneInGame>());
-			return true;
+			switch (key)
+			{
+			case One:
+				selectEnemyID = 1;
+				break;
+			case Two:
+				selectEnemyID = 2;
+				break;
+			case Three:
+				selectEnemyID = 3;
+				break;
+			case Four:
+				selectEnemyID = 4;
+				break;
+			}
+
+			manager->ChangeScene(std::make_unique<SceneInGame>(EnemyFactory::CreateEnemy(selectEnemyID)));
+
 		}
 
+		
 	}
 
 	return false;
