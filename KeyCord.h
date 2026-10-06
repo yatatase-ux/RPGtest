@@ -7,5 +7,6 @@ enum
 	Space = 32,
 	One = 49,
 	Two = 50,
-	Three = 51
+	Three = 51,
+	Four = 52
 };

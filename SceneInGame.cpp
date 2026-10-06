@@ -14,6 +14,7 @@ SCENE_UPDATE(SceneInGame)
 {
 	if (_kbhit())
 	{
+
 		manager->ChangeScene(std::make_unique<SceneResult>());
 	}
 
