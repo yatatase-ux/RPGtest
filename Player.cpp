@@ -11,9 +11,11 @@ Player::Player()
 	currentHP = maxHP;
 }
 
-void Player::Attack(int num)
+int Player::Attack(int num)
 {
 	bool mpOver = false;
 	currentMP = (currentMP - attack[num].mp < 0) ? mpOver = true : currentMP - attack[num].mp;
-	if (mpOver) return;
+	if (mpOver) return -1;
+
+
 }
