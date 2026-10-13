@@ -9,6 +9,7 @@
 SCENE_ENTER(SceneResult)
 {
 	std::cout << "Entering Result Scene" << std::endl;
+	std::cout << "スペースキーでタイトルへ" << std::endl;
 }
 
 SCENE_UPDATE(SceneResult)

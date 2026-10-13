@@ -10,10 +10,12 @@ class SceneManager
 	bool isRunning = false;
 	float gameTime = 0.0f;
 
-
+	// シングルトン
 	SceneManager(std::unique_ptr<SceneBase> initialScene);
+
 public:
 
+	// コピー禁止
 	SceneManager(const SceneManager&) = delete;
 	SceneManager& operator=(const SceneManager&) = delete;
 
