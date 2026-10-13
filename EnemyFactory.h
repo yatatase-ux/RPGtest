@@ -1,5 +1,7 @@
 #pragma once
 #include "EnemyData.h"
+#include "ObjectPool.hpp"
+#include <memory>
 
 class Enemy;
 
@@ -8,15 +10,13 @@ class EnemyFactory
 	static const EnemyData EnemyDataTable[];
 	static const int EnemyDataTableSize;
 
-	static const char* ElementChar(Element element);
-
 public:
 
-	static Enemy* CreateEnemy(int enemyID);
+	static std::unique_ptr<PoolHandle<Enemy>> CreateEnemy(int enemyID);
 
 	static int GetEnemyTableSize();
 
-	static int GetID(EnemyData& enemy) { return enemy.ID; };
+	static int GetID(const EnemyData& enemy) { return enemy.ID; };
 
-	static void ShowEnemyData(int id);
+	static ObjectPool<Enemy>& Pool();
 };

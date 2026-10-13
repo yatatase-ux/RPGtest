@@ -4,7 +4,7 @@
 struct EnemyData
 {
 	int ID;
-	const char Name[256];
+	const char* Name;
 	int HP;
 	int ATK;
 	int DEF;
@@ -12,5 +12,6 @@ struct EnemyData
 	int CriticalRate;
 	int Gold;
 	int EXP;
-	Element Element;
+	Element element;
 };
+

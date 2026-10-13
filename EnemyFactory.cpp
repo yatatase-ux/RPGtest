@@ -11,15 +11,24 @@ const EnemyData EnemyFactory::EnemyDataTable[] = {
 };
 const int EnemyFactory::EnemyDataTableSize = sizeof(EnemyFactory::EnemyDataTable) / sizeof(EnemyFactory::EnemyDataTable[0]);
 
-Enemy* EnemyFactory::CreateEnemy(int enemyID)
+std::unique_ptr<PoolHandle<Enemy>> EnemyFactory::CreateEnemy(int enemyID)
 {
 	for (int i = 0; i < EnemyDataTableSize; ++i)
 	{
 		if (EnemyDataTable[i].ID == enemyID)
 		{
-			return new Enemy(EnemyDataTable[i]);
+			// プールから1体借りる（空きがないと例外が飛ぶ）
+			PoolHandle<Enemy> handle = Pool().Acquire();
+
+			// 借りた Enemy にデータを設定する
+			handle->Init(EnemyDataTable[i]);
+
+			// PoolHandle はコピー禁止なので std::move で渡す
+			return std::make_unique<PoolHandle<Enemy>>(std::move(handle));
 		}
 	}
+
+	// 該当IDなし
 	return nullptr;
 }
 
@@ -28,45 +37,8 @@ int EnemyFactory::GetEnemyTableSize()
 	return EnemyDataTableSize;
 }
 
-const char* EnemyFactory::ElementChar(Element element)
+ObjectPool<Enemy>& EnemyFactory::Pool()
 {
-	switch (element)
-	{
-	case Element::None:
-		return "None";
-	case Element::Fire:
-		return "Fire";
-	case Element::Water:
-		return "Water";
-	case Element::Light:
-		return "Light";
-	case Element::Dark:
-		return "Dark";
-	case Element::Earth:
-		return "Earth";
-	case Element::Wind:
-		return "Wind";
-	}
-}
-
-void EnemyFactory::ShowEnemyData(int id)
-{
-	if (id < 1) return;
-	int index = id - 1;
-
-	std::cout << "ID : " <<  EnemyDataTable[index].ID << std::endl;
-
-	std::cout << "Name : " << EnemyDataTable[index].Name << std::endl;
-
-	std::cout << "HP : " << EnemyDataTable[index].HP << ", "
-		<< "ATK : " << EnemyDataTable[index].ATK << ", "
-		<< "DEF : " << EnemyDataTable[index].DEF << ", "
-		<< "SPD : " << EnemyDataTable[index].SPD << ", "
-		<< "CRI : " << EnemyDataTable[index].CriticalRate << ", "
-		<< "Gold : " << EnemyDataTable[index].Gold << ", "
-		<< "EXP : " << EnemyDataTable[index].EXP << ", "
-		<< std::endl;
-
-	const char* element = ElementChar(EnemyDataTable[index].Element);
-	std::cout << "Element : " << element << std::endl;
+	static ObjectPool<Enemy> pool(1);
+	return pool;
 }

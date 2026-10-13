@@ -38,7 +38,12 @@ SCENE_UPDATE(SceneMainMenu)
 				break;
 			}
 
-			manager->ChangeScene(std::make_unique<SceneInGame>(EnemyFactory::CreateEnemy(selectEnemyID)));
+			auto enemy = EnemyFactory::CreateEnemy(selectEnemyID);
+
+			if(enemy)
+			{
+				manager->ChangeScene(std::make_unique<SceneInGame>(std::move(*enemy)));
+			}
 
 		}
 

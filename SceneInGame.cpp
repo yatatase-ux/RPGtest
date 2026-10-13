@@ -9,8 +9,7 @@
 SCENE_ENTER(SceneInGame)
 {
 	std::cout << "Show the Enemy State" << std::endl;
-	int enemyID = enemy->GetData().ID;
-	EnemyFactory::ShowEnemyData(enemyID);
+	enemy->ShowData();
 	std::cout << "Any Key‚Åi‚Þ" << std::endl;
 }
 
