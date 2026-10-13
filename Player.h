@@ -1,8 +1,20 @@
 #pragma once
 #include <memory>
 
+struct AttackInfo
+{
+	const char* name;
+	int power;
+	int mp;
+};
+
 class Player
 {
+	AttackInfo attack[4];
+	const int maxMP = 20;
+	int currentMP;
+	const int maxHP = 50;
+	int currentHP;
 	Player();
 
 public:
@@ -18,5 +30,5 @@ public:
 		return instance;
 	}
 
-	void Attack();
+	int Attack(int num);
 };
