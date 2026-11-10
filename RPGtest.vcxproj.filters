@@ -18,27 +18,27 @@
     <Filter Include="ソース ファイル\Pool">
       <UniqueIdentifier>{8d97de09-10b0-4d9a-b55d-70c8f7029940}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Scene\2-Title">
+      <UniqueIdentifier>{612a4463-e64c-4a21-afce-b2b1abeb4333}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\1-Startup">
+      <UniqueIdentifier>{880c5813-ef3f-431e-bf72-4306cb50a535}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\3-MainMenu">
+      <UniqueIdentifier>{baf15f76-6425-457c-bbeb-2b1fea31105c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\4-InGame">
+      <UniqueIdentifier>{8c131c5c-b626-42cf-97c5-b32ef7c40d9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\5-Result">
+      <UniqueIdentifier>{d900c384-67e6-49ee-9935-eb310adbb09a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneTitle.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneMainMenu.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneStartup.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneInGame.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneResult.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
@@ -50,6 +50,21 @@
     <ClCompile Include="Player.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソース ファイル\Scene\2-Title</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStartup.cpp">
+      <Filter>ソース ファイル\Scene\1-Startup</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMainMenu.cpp">
+      <Filter>ソース ファイル\Scene\3-MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneInGame.cpp">
+      <Filter>ソース ファイル\Scene\4-InGame</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneResult.cpp">
+      <Filter>ソース ファイル\Scene\5-Result</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h">
@@ -58,23 +73,8 @@
     <ClInclude Include="SceneManager.h">
       <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="SceneTitle.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneMainMenu.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneStartup.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneInGame.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="KeyCord.h">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneResult.h">
-      <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>ソース ファイル\Enemy</Filter>
@@ -96,6 +96,21 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ソース ファイル\Scene\2-Title</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStartup.h">
+      <Filter>ソース ファイル\Scene\1-Startup</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMainMenu.h">
+      <Filter>ソース ファイル\Scene\3-MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneInGame.h">
+      <Filter>ソース ファイル\Scene\4-InGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneResult.h">
+      <Filter>ソース ファイル\Scene\5-Result</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
