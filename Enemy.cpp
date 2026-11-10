@@ -28,7 +28,6 @@ const char* Enemy::ElementChar(Element element)
 	}
 }
 
-
 void Enemy::ShowData()
 {
 

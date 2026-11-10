@@ -1,16 +1,10 @@
 #pragma once
 #include <memory>
-
-struct AttackInfo
-{
-	const char* name;
-	int power;
-	int mp;
-};
+#include "MoveInfo.h"
 
 class Player
 {
-	AttackInfo attack[4];
+	MoveInfo move[4];
 	const int maxMP = 20;
 	int currentMP;
 	const int maxHP = 50;
@@ -30,5 +24,9 @@ public:
 		return instance;
 	}
 
-	int Attack(int num);
+	int GetAttackDamage(int moveNum);
+	int GetCurrentMP() { return currentMP; };
+	int GetCurrentHP() { return currentHP; };
+	const MoveInfo* GetMove() { return move; };
+	const char* GetMoveName(int moveNum) { return move[moveNum].name; };
 };

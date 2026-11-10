@@ -8,17 +8,37 @@
 
 SCENE_ENTER(SceneInGame)
 {
-	std::cout << "Show the Enemy State" << std::endl;
-	enemy->ShowData();
-	std::cout << "Any Keyで進む" << std::endl;
+	std::cout << "ゲームスタート" << std::endl;
 }
 
 SCENE_UPDATE(SceneInGame)
 {
-	if (_kbhit())
+
+	switch (currentPhase)
 	{
-		manager->ChangeScene(std::make_unique<SceneResult>());
+	case BattlePhase::None:
+		break;
+	case BattlePhase::SlcCom:
+	{
+		phaseKeep = currentPhase;
+		view.PlayerMove(player->GetMove());
+		currentPhase = BattlePhase::None;
+
+		break;
 	}
+	case BattlePhase::CalcDmg:
+	
+
+		break;
+	case BattlePhase::FaintChk:
+
+		break;
+	}
+
+	//if (_kbhit())
+	//{
+	//	manager->ChangeScene(std::make_unique<SceneResult>());
+	//}
 
 	return false;
 }
