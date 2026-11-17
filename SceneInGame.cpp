@@ -21,7 +21,7 @@ SCENE_UPDATE(SceneInGame)
 	case BattlePhase::SlcCom:
 	{
 		phaseKeep = currentPhase;
-		view.PlayerMove(player->GetMove());
+		view->PlayerMove(player->GetMove());
 		currentPhase = BattlePhase::None;
 
 		break;
@@ -35,10 +35,10 @@ SCENE_UPDATE(SceneInGame)
 		break;
 	}
 
-	//if (_kbhit())
-	//{
-	//	manager->ChangeScene(std::make_unique<SceneResult>());
-	//}
+	if (_kbhit())
+	{
+		manager->ChangeScene(std::make_unique<SceneResult>());
+	}
 
 	return false;
 }

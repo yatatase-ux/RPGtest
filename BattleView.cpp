@@ -1,10 +1,11 @@
 #include "BattleView.h"
 #include <string>
 #include <iostream>
+#include "Player.h"
 
-void BattleView::PlayerMove(const MoveInfo move[])
+void BattleView::PlayerMove(Player& player)
 {
-	if (move == nullptr)
+	if (/*player*/)
 	{
 		std::cout << "NoData" << std::endl;
 		return;

@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "ObjectPool.hpp"
 #include "BattleView.h"
+#include <memory>
 
 enum class BattlePhase
 {
@@ -17,7 +18,7 @@ class SceneInGame : public SceneBase
 {
 	PoolHandle<Enemy> enemy;
 	Player* player;
-	BattleView view;
+	std::unique_ptr<BattleView> view;
 
 	BattlePhase currentPhase;
 	BattlePhase phaseKeep;
@@ -29,6 +30,7 @@ public:
 	{
 		player->Instance();
 		currentPhase = BattlePhase::SlcCom;
+		view = std::make_unique<BattleView>(player->GetMove());
 	}
 
 	SCENE_CLASS(SceneInGame);
