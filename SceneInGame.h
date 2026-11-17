@@ -17,20 +17,21 @@ enum class BattlePhase
 class SceneInGame : public SceneBase
 {
 	PoolHandle<Enemy> enemy;
-	Player* player;
+	Player& player = Player::Instance();
 	std::unique_ptr<BattleView> view;
 
 	BattlePhase currentPhase;
 	BattlePhase phaseKeep;
+
+	bool isInput = true;
 
 public:
 
 	SceneInGame(PoolHandle<Enemy> e)
 		:enemy(std::move(e))
 	{
-		player->Instance();
 		currentPhase = BattlePhase::SlcCom;
-		view = std::make_unique<BattleView>(player->GetMove());
+		view = std::make_unique<BattleView>(player);
 	}
 
 	SCENE_CLASS(SceneInGame);

@@ -6,9 +6,13 @@ class Player;
 class BattleView
 {
 
+	Player& player;
+
 public:
 
-	void PlayerMove(Player& player);
+	BattleView(Player& p);
+
+	void PlayerMove();
 
 	void Damage(const char* attacker, const char* victim, const char* moveName, int dmg);
 

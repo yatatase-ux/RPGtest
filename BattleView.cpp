@@ -3,19 +3,26 @@
 #include <iostream>
 #include "Player.h"
 
-void BattleView::PlayerMove(Player& player)
+BattleView::BattleView(Player& p) 
+	:player(p)
 {
-	if (/*player*/)
-	{
-		std::cout << "NoData" << std::endl;
-		return;
-	}
+
+
+}
+
+void BattleView::PlayerMove()
+{
+	//if (/*player*/)
+	//{
+	//	std::cout << "NoData" << std::endl;
+	//	return;
+	//}
 
 	int size = 4;
 	std::string txt;
 	for (int i = 0; i < size; i++)
 	{
-		txt += std::string(move[i].name) + "　　";
+		txt += std::string(player.GetMoveName(i)) + "　　";
 	}
 
 	std::cout << "技：" << txt << std::endl;

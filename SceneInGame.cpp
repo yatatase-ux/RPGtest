@@ -21,8 +21,33 @@ SCENE_UPDATE(SceneInGame)
 	case BattlePhase::SlcCom:
 	{
 		phaseKeep = currentPhase;
-		view->PlayerMove(player->GetMove());
-		currentPhase = BattlePhase::None;
+		view->PlayerMove();
+		int moveNum;
+		std::cout << "‹Z”Ô†F";
+		std::cin >> moveNum;
+		std::cout << std::endl;
+
+		if (_kbhit())
+		{
+			int key = _getch();
+			int selectEnemyID = -1;
+
+			if (key == Enter)
+			{
+				isInput = true;
+
+				if (moveNum > 4)
+				{
+
+				}
+
+				// ---- UŒ‚ˆ— ----
+				player.GetAttackDamage(moveNum - 1);
+
+			}
+
+
+		}
 
 		break;
 	}
@@ -38,6 +63,30 @@ SCENE_UPDATE(SceneInGame)
 	if (_kbhit())
 	{
 		manager->ChangeScene(std::make_unique<SceneResult>());
+	}
+
+	if (isInput)
+	{
+		switch (currentPhase)
+		{
+		case BattlePhase::None:
+			break;
+		case BattlePhase::SlcCom:
+		{
+			currentPhase = BattlePhase::None;
+
+			break;
+		}
+		case BattlePhase::CalcDmg:
+
+
+			break;
+		case BattlePhase::FaintChk:
+
+			break;
+		}
+
+		isInput = false;
 	}
 
 	return false;
