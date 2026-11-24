@@ -1,4 +1,7 @@
 #pragma once
+
+
+// ‰¼•ÏX
 enum Element
 {
 	None,
